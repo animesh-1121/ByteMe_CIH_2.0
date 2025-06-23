@@ -113,9 +113,28 @@ io.on('connection', (socket) => {
   });
 });
 
-// Serve React app for all non-API routes
+// Serve static HTML pages
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'home.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'dashboard.html'));
+});
+
+// Serve React app for all non-API routes (if you have one, otherwise adjust or remove)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  // If you have a main index.html for a SPA, serve it here.
+  // If not, you might want to send a 404 or redirect to home.
+  // For now, let's assume there might be other static assets in 'public' or a SPA.
+  // If 'public/index.html' is not the intended fallback, this should be changed.
+  const indexPath = path.join(__dirname, 'public', 'index.html');
+  if (require('fs').existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    // Fallback if public/index.html doesn't exist, e.g., redirect to home or send 404
+    res.status(404).send('Page not found or public/index.html missing.');
+  }
 });
 
 // Global error handler
