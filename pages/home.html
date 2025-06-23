@@ -9,23 +9,25 @@
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
+
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.13/build/spline-viewer.js"></script>
   <script>
-  async function connectWallet() {
-    if (window.ethereum) {
-      try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const address = accounts[0];
-        document.getElementById('wallet-btn').innerText = address.slice(0, 6) + '...' + address.slice(-4);
-      } catch (err) {
-        alert('Connection rejected.');
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const address = accounts[0];
+          document.getElementById('wallet-btn').innerText = address.slice(0, 6) + '...' + address.slice(-4);
+          // Redirect to dashboard after successful connection
+          window.location.href = "/dashboard";
+        } catch (err) {
+          alert('Connection rejected.');
+        }
+      } else {
+        alert('MetaMask not detected. Please install MetaMask.');
       }
-    } else {
-      alert('MetaMask not detected. Please install MetaMask.');
     }
-  }
-</script>
+  </script>
 </head>
 
 <body>
@@ -55,13 +57,13 @@
           </div>
           <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">SkillSwap</h2>
         </div>
-       <button
-  id="wallet-btn"
-  onclick="connectWallet()"
-  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#1990e5] text-white text-base font-bold leading-normal tracking-[0.015em]"
+        
+        <a
+  href="/dashboard.html"
+  class="mt-6 flex items-center justify-center rounded-full h-12 px-6 bg-[#2f2447] text-white text-base font-bold shadow transition hover:bg-[#1990e5]"
 >
-  <span class="truncate">Connect with MetaMask</span>
-</button>
+  Go to Dashboard
+</a>
       </header>
       <div class="px-40 flex flex-1 justify-center py-5">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
@@ -81,13 +83,10 @@
                     your expertise.
                   </h2>
                 </div>
-               <button
-  id="wallet-btn"
-  onclick="connectWallet()"
-  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#1990e5] text-white text-base font-bold leading-normal tracking-[0.015em]"
->
-  <span class="truncate">Connect with MetaMask</span>
-</button>
+                <button id="wallet-btn" onclick="connectWallet()"
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#1990e5] text-white text-base font-bold leading-normal tracking-[0.015em]">
+                  <span class="truncate">Connect with MetaMask</span>
+                </button>
               </div>
             </div>
           </div>

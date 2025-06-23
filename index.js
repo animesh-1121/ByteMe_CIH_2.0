@@ -4,11 +4,20 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Serve home.html at the root URL from the pages folder
+// Home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,  'pages', 'home.html'));
+  res.sendFile(path.join(__dirname, 'pages', 'home.html'));
 });
 
+// Dashboard page
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'dashboard.html'));
+});
+
+// Profile page
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'profile.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
