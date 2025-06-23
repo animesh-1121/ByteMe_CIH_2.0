@@ -122,9 +122,24 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'dashboard.html'));
 });
 
+
+
+
+
+
+
+
+
 app.get('/explore', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'explore.html'));
 });
+
+app.get('/earning', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'earning.html'));
+});
+
+
+
 
 // Serve React app for all non-API routes (if you have one, otherwise adjust or remove)
 app.get('*', (req, res) => {
