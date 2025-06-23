@@ -1,42 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="home.css">
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Skill Swap</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     
-  
-</head>
-<body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/examples/js/controls/OrbitControls.js"></script>
-
-  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = true;
-
-    const geometry = new THREE.SphereGeometry(1, 64, 64);
-    const texture = new THREE.TextureLoader().load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    const globe = new THREE.Mesh(geometry, material);
-    scene.add(globe);
-
-    camera.position.z = 2;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      globe.rotation.y += 0.001;
-      renderer.render(scene, camera);
-    }
-    animate();
-  </script>
-</body>
-
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#161122] dark group/design-root overflow-x-hidden"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2f2447] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_330)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">SkillSwap</h2>
+          </div>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#5619e5] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+          >
+            <span class="truncate">Connect Wallet</span>
+          </button>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8D4ALOZUdNPxbcZFFLotYxgXOWBPSMpxjHL9eaIWhrkTUQYRp3jI6lhl8PrWI4-hPVXsYKUoCKCkXm5anmr74v5Ni9htvhAe2A71hTca3V_kjz1RvtiQRYq7Xg04uqseYveMEASNyvCtJC1E7747L3J8CH1W6S3u4UiQbOaQfHsdW21Q5oLqrqafhOosEucfXCu2m1Us617_WLWkAPZRBUHlVIdhg3t4bGp9xSZRS9OVJNeh0FoTUDJYRNzUsO4-3YyTvLRsxy6M");'
+                >
+                  <div class="flex flex-col gap-2 text-center">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      SkillSwap: Learn, Teach, and Exchange Skills
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      SkillSwap is a peer-to-peer microlearning and skill exchange platform for learners, students, and teachers. Connect with others to learn new skills or share
+                      your expertise.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#5619e5] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                  >
+                    <span class="truncate">Connect Wallet</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </body>
 </html>
