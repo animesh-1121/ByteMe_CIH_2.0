@@ -19,6 +19,10 @@ app.get('/profile', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'profile.html'));
 });
 
+app.get('/explore', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'explore.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
