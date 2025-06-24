@@ -52,6 +52,7 @@
             <div class="flex flex-wrap justify-between gap-3 p-4">
               <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">My Lessons</p>
               <button
+                id="newLessonButton"
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#2c3035] text-white text-sm font-medium leading-normal"
               >
                 <span class="truncate">New Lesson</span>
@@ -272,5 +273,10 @@
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('newLessonButton').addEventListener('click', function() {
+        window.location.href = '/newlesson';
+      });
+    </script>
   </body>
 </html>
