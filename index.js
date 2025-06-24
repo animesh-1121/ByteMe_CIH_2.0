@@ -27,6 +27,18 @@ app.get('/earning', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'earning.html'));
 });
 
+app.get('/lesson', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'lesson.html'));
+});
+
+app.get('/mylesson', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'mylesson.html'));
+});
+
+app.get('/newlesson', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'newlesson.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
